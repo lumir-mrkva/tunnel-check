@@ -1,0 +1,98 @@
+{
+  "mappings": {
+    "transaction" : {
+      "properties" : {
+          "amount": {
+              "type": "long"
+          },
+          "currency": {
+              "type": "string",
+              "index": "not_analyzed"
+          },
+          "dueDate": {
+              "format": "dateOptionalTime",
+              "type": "date"
+          },
+          "receiver": {
+              "type": "nested",
+              "properties": {
+                  "accBankCode": {
+                      "type": "string",
+                      "index": "not_analyzed"
+                  },
+                  "accNumber": {
+                      "type": "string",
+                      "index": "not_analyzed"
+                  },
+                  "actualizationDate": {
+                      "format": "dateOptionalTime",
+                      "type": "date"
+                  },
+                  "balance": {
+                      "type": "double"
+                  },
+                  "currency": {
+                      "type": "string",
+                      "index": "not_analyzed"
+                  },
+                  "description": {
+                      "type": "string"
+                  },
+                  "iban": {
+                      "type": "string",
+                      "index": "not_analyzed"
+                  },
+                  "name": {
+                      "type": "string"
+                  },
+                  "publicationTo": {
+                      "format": "dateOptionalTime",
+                      "type": "date"
+                  },
+                  "transparencyFrom": {
+                      "format": "dateOptionalTime",
+                      "type": "date"
+                  },
+                  "transparencyTo": {
+                      "format": "dateOptionalTime",
+                      "type": "date"
+                  }
+              }
+          },
+          "sender": {
+              "properties": {
+                  "constantSymbol": {
+                      "type": "string"
+                  },
+                  "description": {
+                      "type": "string"
+                  },
+                  "specificSymbol": {
+                      "type": "string",
+                      "index": "not_analyzed"
+                  },
+                  "specificSymbolParty": {
+                      "type": "string",
+                      "index": "not_analyzed"
+                  },
+                  "variableSymbol": {
+                      "type": "string",
+                      "index": "not_analyzed"
+                  }
+              }
+          },
+          "senderName": {
+              "type": "string"
+          },
+          "transactionType": {
+              "type": "string",
+              "index": "not_analyzed"
+          },
+          "valuationDate": {
+              "format": "dateOptionalTime",
+              "type": "date"
+          }
+      }
+    }
+  }
+}
